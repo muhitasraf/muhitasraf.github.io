@@ -632,10 +632,10 @@
             $("#re").css("visibility", "hidden");
             document.getElementById("loader").style.visibility = "visible";
             $('#mySpinner').addClass('spinner');
-            var Name = $("#Name").val();
-            var Email = $("#Email").val();
-            var Message = $("#Message").val();
-            var Subject = $("#Subject").val();
+            var Name = $("#name").val();
+            var Email = $("#email").val();
+            var Message = $("#message").val();
+            var Subject = $("#subject").val();
             var url = script_url + "?callback=ctrlq&Name=" + Name + "&Email=" + Email + "&Subject" + Subject +"&Message" + Message + "&action=insert";
             var request = jQuery.ajax({
                 crossDomain: true,
