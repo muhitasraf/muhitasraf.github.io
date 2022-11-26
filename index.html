@@ -636,7 +636,10 @@
             var Email = $("#email").val();
             var Message = $("#message").val();
             var Subject = $("#subject").val();
-            var url = script_url + "?callback=ctrlq&Name=" + Name + "&Email=" + Email + "&Subject" + Subject +"&Message" + Message + "&action=insert";
+            alert(Name);
+            var url = script_url + "?callback=ctrlq&Name=" + Name + "&Email=" + Email + "&Subject=" + Subject +"&Message=" + Message + "&action=insert";
+            console.log(url);
+            
             var request = jQuery.ajax({
                 crossDomain: true,
                 url: url,
