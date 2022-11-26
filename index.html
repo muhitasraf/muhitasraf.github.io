@@ -622,7 +622,26 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+    <script >
+        var script_url = "https://script.google.com/macros/s/AKfycbw6IQSwvjvcQgELrmUiEeyPoRznAkOR4j4VoSvqL8wh9kWbK_U2gu4BuDNX9Nh8yDU/exec";
+        
+        // Make an AJAX call to Google Script
+        function insert_value() {
+            $("#re").css("visibility", "hidden");
+            document.getElementById("loader").style.visibility = "visible";
+            $('#mySpinner').addClass('spinner');
+            var id1 = $("#id").val();
+            var name = $("#name").val();
+            var url = script_url + "?callback=ctrlq&name=" + name + "&id=" + id1 + "&action=insert";
+            var request = jQuery.ajax({
+                crossDomain: true,
+                url: url,
+                method: "GET",
+                dataType: "jsonp"
+            });
+        }
         var today =  Date.now() ;
         var joining_date =  Date.parse("January 29, 2022")
         var diff = today - joining_date;
@@ -639,31 +658,7 @@
             months %= 12;
         var experience = years + ' Years '+ months + ' Month ' + days + ' Days';
         document.getElementById('txt').innerHTML = experience;
-        // var getJSON = function(url, callback) {
-        //     var xhr = new XMLHttpRequest();
-        //     xhr.open('GET', url, true);
-        //     xhr.responseType = 'json';
-        //     xhr.onload = function() {
-        //     var status = xhr.status;
-        //     if (status === 200) {
-        //         callback(null, xhr.response);
-        //     } else {
-        //         callback(status, xhr.response);
-        //     }
-        //     };
-        //     xhr.send();
-        // };
-        // getJSON('http://ip-api.com/json', function(data) {
-        //     // JSON result in `data` variable
-        //     console.log(data);
-        // });
-        // let url = 'http://ip-api.com/json';
 
-        // fetch(url)
-        // .then(res => res.json())
-        // .then(out =>
-        // console.log('Checkout this JSON! ', out['city']))
-        // .catch(err => { throw err });
     </script>
 </body>
 
