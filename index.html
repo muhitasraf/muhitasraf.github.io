@@ -69,7 +69,32 @@
                     </div>
                 </div>
                 <div class="col-lg-6 px-8 pl-lg-0 pb-5 pb-lg-4 about-img">
-                    <img class="img-fluid w-100 rounded-circle shadow-sm" src="img/profile.jpg" alt="">
+                    <!-- <img class="img-fluid w-100 rounded-circle shadow-sm" src="img/profile.jpg" alt=""> -->
+                    <div class="container" style="width: 450px;padding: 20px;">
+                        <h2 class="text-center">Prayer Times</h2>
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>Fajr</th>
+                                <th>Dhuhr</th>
+                                <th>Asr</th>
+                                <th>Maghrib</th>
+                                <th>Isha</th>
+                                <th>MidNight</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td id="fajr"></td>
+                                <td id="dhuhr"></td>
+                                <td id="asr"></td>
+                                <td id="maghrib"></td>
+                                <td id="isha"></td>
+                                <td id="midnight"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -623,9 +648,49 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script> -->
+    <script type="text/javascript" src="apps/salahtime/PrayTimes.js"></script>
 
-    <script >
+    <script>
+        saveUserIpAddress();
+        function saveUserIpAddress(){
+            var ip_url = "https://json.geoiplookup.io/";
+            var ip_address = '';
+            var city = '';
+            var country_name = '';
+            var postal_code = '';
+            var region = '';
+            var district = '';
+            var isp = '';
+            $.getJSON(ip_url, function (user_info) {
+                ip_address = user_info['ip'];
+                postal_code = user_info['postal_code'];
+                city = user_info['city'];
+                region = user_info['region'];
+                district = user_info['district'];
+                country_name = user_info['country_name'];
+                
+                var script_url = "https://script.google.com/macros/s/AKfycbwLO4W3Jqo9ivNZydyJdZyoKhDwmFDPDHHmVMuaDcUf4jkpV__zeGj88l4ruYktpjs/exec";
+                var url = script_url + "?ip_address=" + ip_address + "&postal_code=" + postal_code + "&city=" + city +"&region=" + region +"&district=" + district +"&country_name=" + country_name + "&action=insert";
+                $.ajax({
+                    crossDomain: true,
+                    url: url,
+                    method: "GET",
+                    dataType: "jsonp",
+                    cache: false,
+                    success: function () {
+
+                    },
+                    error: function () {
+                        
+                    },
+                    complete: function () {
+                        setTimeout(function () {
+                            // $this.prop("disabled", false);
+                        }, 1000);
+                    }
+                });
+            });
+        }
         var today =  Date.now() ;
         var joining_date =  Date.parse("January 29, 2022")
         var diff = today - joining_date;
