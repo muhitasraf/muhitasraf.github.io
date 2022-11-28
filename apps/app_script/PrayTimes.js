@@ -587,12 +587,11 @@ var DMath = {
 
 var prayTimes = new PrayTimes();
 prayTimes.setMethod("Karachi");
-prayTimes.asrFactor("Hanafi");
+prayTimes.adjust( {fajr: 5, dhuhr: '0 min', asr: 'Hanafi', isha: 18} );
 var timeObj = prayTimes.getTimes(new Date(), [23.78, 90.34], +6,null,'12h');
 
-console.log(prayTimes.asrFactor("Hanafi"));
-
 document.getElementById("fajr").innerHTML = timeObj.fajr;
+document.getElementById("sunrise").innerHTML = timeObj.sunrise;
 document.getElementById("dhuhr").innerHTML = timeObj.dhuhr;
 document.getElementById("asr").innerHTML = timeObj.asr;
 document.getElementById("maghrib").innerHTML = timeObj.maghrib;

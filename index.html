@@ -69,30 +69,41 @@
                     </div>
                 </div>
                 <div class="col-lg-6 px-8 pl-lg-0 pb-5 pb-lg-4 about-img">
-                    <!-- <img class="img-fluid w-100 rounded-circle shadow-sm" src="img/profile.jpg" alt=""> -->
-                    <div class="container">
-                        <h2 class="text-center">Prayer Times</h2>
-                        <table class="table table-bordered">
-                            <thead>
+                    <!-- <img  class="img-fluid w-100 rounded-circle shadow-sm" src="img/profile.jpg" alt=""> -->
+                    <!-- <p style="border-radius: 25px; background: rgba(76, 175, 80, 0.1);  color: white;"></p> -->
+                    <div  class="container">
+                        <table class="table">
+                            <tr>
+                                <th colspan="2"><h4 class="text-center">Prayer Times</h4></th>
+                            </tr>
                             <tr>
                                 <th>Fajr</th>
-                                <th>Dhuhr</th>
-                                <th>Asr</th>
-                                <th>Maghrib</th>
-                                <th>Isha</th>
-                                <th>MidNight</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
                                 <td id="fajr"></td>
+                            </tr>
+                            <tr>
+                                <th>Sunrise</th>
+                                <td id="sunrise"></td>
+                            </tr>
+                            <tr>
+                                <th>Dhuhr</th>
                                 <td id="dhuhr"></td>
+                            </tr>
+                            <tr>
+                                <th>Asr</th>
                                 <td id="asr"></td>
+                            </tr>
+                            <tr>
+                                <th>Maghrib</th>
                                 <td id="maghrib"></td>
+                            </tr>
+                            <tr>
+                                <th>Isha</th>
                                 <td id="isha"></td>
+                            </tr>
+                            <tr>
+                                <th>Last Night</th>
                                 <td id="midnight"></td>
                             </tr>
-                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -587,6 +598,11 @@
                                     data-validation-required-message="Please enter your message"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
+                            <div class="modal fade" tabindex="-1" role="dialog" id="spinnerModal">
+                                <div class="modal-dialog modal-dialog-centered text-center" role="document">
+                                    <span class="fa fa-spinner fa-spin fa-3x w-100"></span>
+                                </div>
+                            </div>
                             <div>
                                 <button class="btn btn-outline-success" type="submit" id="sendMessageButton">Send Message</button>
                             </div>
@@ -648,49 +664,10 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script type="text/javascript" src="apps/salahtime/PrayTimes.js"></script>
+    <script type="text/javascript" src="apps/app_script/PrayTimes.js"></script>
+    <script type="text/javascript" src="apps/app_script/PrayTimes.js"></script>
 
     <script>
-        saveUserIpAddress();
-        function saveUserIpAddress(){
-            var ip_url = "https://json.geoiplookup.io/";
-            var ip_address = '';
-            var city = '';
-            var country_name = '';
-            var postal_code = '';
-            var region = '';
-            var district = '';
-            var isp = '';
-            $.getJSON(ip_url, function (user_info) {
-                ip_address = user_info['ip'];
-                postal_code = user_info['postal_code'];
-                city = user_info['city'];
-                region = user_info['region'];
-                district = user_info['district'];
-                country_name = user_info['country_name'];
-                
-                var script_url = "https://script.google.com/macros/s/AKfycbwLO4W3Jqo9ivNZydyJdZyoKhDwmFDPDHHmVMuaDcUf4jkpV__zeGj88l4ruYktpjs/exec";
-                var url = script_url + "?ip_address=" + ip_address + "&postal_code=" + postal_code + "&city=" + city +"&region=" + region +"&district=" + district +"&country_name=" + country_name + "&action=insert";
-                $.ajax({
-                    crossDomain: true,
-                    url: url,
-                    method: "GET",
-                    dataType: "jsonp",
-                    cache: false,
-                    success: function () {
-
-                    },
-                    error: function () {
-                        
-                    },
-                    complete: function () {
-                        setTimeout(function () {
-                            // $this.prop("disabled", false);
-                        }, 1000);
-                    }
-                });
-            });
-        }
         var today =  Date.now() ;
         var joining_date =  Date.parse("January 29, 2022")
         var diff = today - joining_date;
