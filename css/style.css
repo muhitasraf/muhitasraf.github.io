@@ -1,5 +1,3 @@
-
-
 *,
 *::before,
 *::after {
@@ -13,8 +11,6 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
- 
-
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
@@ -25,7 +21,7 @@ body {
   text-align: left;
   background-color: #ffffff;
 }
- 
+
 a {
   color: #0BCEAF;
   text-decoration: none;
@@ -36,15 +32,12 @@ a:hover {
   color: #078571;
   text-decoration: underline;
 }
- 
+
 h1,h2,h3,h4,h5,h6,p{
   color: #020202 !important;
 } 
 
- 
-
 /********** Template CSS ************/
-
 
 .text-stroke-header {
   -webkit-text-stroke: 3px #ffffff;
@@ -69,11 +62,7 @@ h1,h2,h3,h4,h5,h6,p{
   border-radius: 25px;
 }
 
-
-
-
 /* ================ Navigation Menu ====================*/
-
 
 .navbar-light {
   display: none;
@@ -96,7 +85,6 @@ h1,h2,h3,h4,h5,h6,p{
     padding: 10px 0;
   }
 }
-
 
 /*===================== Hero section ======================*/
 
@@ -155,12 +143,10 @@ h1,h2,h3,h4,h5,h6,p{
   transition: 2s;
 }
 
-
 /* =================== Queality ======================*/
 .ex-me{
   margin-top: 35px;
 }
-
 
 /* =================== Service Section ==================*/
 .service-h4{
@@ -188,7 +174,6 @@ h1,h2,h3,h4,h5,h6,p{
  
 }
 /* =================== Portfolio section ==================*/
-
 
 .portfolio-item .portfolio-btn {
   position: absolute;
@@ -238,8 +223,6 @@ h1,h2,h3,h4,h5,h6,p{
   background: #0BCEAF;
 }
 
-
-
 /* ========================== Contact Us ========================*/
 
 .contact-form .help-block ul {
@@ -247,7 +230,6 @@ h1,h2,h3,h4,h5,h6,p{
   padding: 0;
   list-style-type: none;
 }
-
 
 /*====================== Back to buttom ==================*/
 
@@ -280,8 +262,6 @@ h1,h2,h3,h4,h5,h6,p{
   }
 }
 
-
-
 .timeline > .timeline-item .timeline-content > h2 {
 	color: #673AB7;
 	margin: 0px;
@@ -307,5 +287,117 @@ h1,h2,h3,h4,h5,h6,p{
 	line-height: 20px;
 	padding-bottom: 25px;
 	min-height: 100px;
+}
+
+/* Mobile-specific fixes */
+@media (max-width: 768px) {
+    /* Fix navbar on mobile */
+    .navbar-light {
+        display: block;
+        padding: 10px;
+    }
+    
+    /* Adjust hero section for mobile */
+    .display-1 {
+        font-size: 50px !important;
+    }
+    
+    .position-absolute {
+        font-size: 24px;
+    }
+    
+    /* Fix container padding */
+    .container-fluid {
+        padding: 15px;
+    }
+    
+    /* Adjust service boxes */
+    .service-box {
+        margin: 10px 0;
+        width: 100%;
+    }
+    
+    /* Fix prayer times table */
+    .table {
+        margin: 15px 0;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+    }
+    
+    .table th, .table td {
+        padding: 8px;
+        font-size: 14px;
+        color: #fff;
+    }
+    
+    /* Fix button alignment */
+    .d-flex.align-items-center {
+        flex-wrap: wrap;
+    }
+    
+    .btn {
+        margin: 5px;
+        width: auto;
+    }
+    
+    /* Fix about section image */
+    .about-img {
+        margin: 0;
+        padding: 15px;
+    }
+    
+    /* Adjust section headings */
+    .service-h4 h1.display-1 {
+        font-size: 40px !important;
+    }
+    
+    .service-h4 h1.position-absolute {
+        font-size: 20px;
+    }
+    
+    /* Fix portfolio items */
+    .portfolio-item {
+        margin-bottom: 15px;
+    }
+    
+    /* Adjust contact form */
+    .contact-form {
+        padding: 15px;
+    }
+    
+    .form-control {
+        margin-bottom: 10px;
+    }
+}
+
+/* Additional responsive fixes */
+@media (max-width: 576px) {
+    /* Header text adjustments */
+    .typed-text-output {
+        font-size: 18px;
+    }
+    
+    /* Fix button spacing */
+    .btn-white {
+        margin: 5px;
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+    
+    /* Adjust qualification section */
+    .timeline-content h2 {
+        font-size: 18px;
+    }
+    
+    .timeline-content p {
+        font-size: 14px;
+        padding: 15px;
+    }
+    
+    /* Fix testimonial carousel */
+    .testimonial-carousel .text-center {
+        margin: 10px;
+        padding: 15px;
+    }
 }
 
