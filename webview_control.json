@@ -1,6 +1,6 @@
 {
   "com.bouopentv.webview": {
-    "is_locked":true,
+    "is_locked":false,
     "frequently_check":true,
     "message":{
       "titile":"Warning!",
@@ -10,6 +10,6 @@
     },
     "is_force_closed":true,
     "redirect_url":"",
-    "action":"external_browser"
+    "action":"alert_dialog"
   }
 }
