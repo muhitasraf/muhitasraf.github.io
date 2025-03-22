@@ -12,4 +12,17 @@
     "redirect_url":"",
     "action":"alert_dialog"
   }
+  "com.hamko.salesorder": {
+    "is_locked":false,
+    "frequently_check":true,
+    "message":{
+      "titile":"Warning!",
+      "body":"Please contact with the developer.",
+      "pos_btn":"ok",
+      "neg_btn":"cancel"
+    },
+    "is_force_closed":true,
+    "redirect_url":"",
+    "action":"alert_dialog"
+  }
 }
