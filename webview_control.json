@@ -11,7 +11,7 @@
     "is_force_closed":true,
     "redirect_url":"",
     "action":"alert_dialog"
-  }
+  },
   "com.hamko.salesorder": {
     "is_locked":true,
     "frequently_check":true,
