@@ -4,7 +4,7 @@
     "frequently_check":true,
     "message":{
       "titile":"Warning!",
-      "body":"Please contact with the developer.",
+      "body":"Not targeting the latest versions of Android; compatibility modes apply. Consult the android. os. Build. VERSION_CODES javadoc for details. ",
       "pos_btn":"ok",
       "neg_btn":"cancel"
     },
