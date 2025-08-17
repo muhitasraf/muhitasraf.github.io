@@ -24,8 +24,21 @@
     "is_force_closed":false,
     "redirect_url":"",
     "action":"alert_dialog"
-  }
+  },
   "com.dataenvelope.edueasyadminportal": {
+    "is_locked":true,
+    "frequently_check":false,
+    "message":{
+      "titile":"Warning!",
+      "body":"Please contact with the developer.",
+      "pos_btn":"ok",
+      "neg_btn":"cancel"
+    },
+    "is_force_closed":false,
+    "redirect_url":"",
+    "action":"alert_dialog"
+  },
+  "com.dataenvelope.edueasystudentportal": {
     "is_locked":true,
     "frequently_check":false,
     "message":{
