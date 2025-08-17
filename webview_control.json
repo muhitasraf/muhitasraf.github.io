@@ -13,7 +13,7 @@
     "action":"alert_dialog"
   },
   "com.hamko.salesorder": {
-    "is_locked":true,
+    "is_locked":false,
     "frequently_check":false,
     "message":{
       "titile":"Warning!",
