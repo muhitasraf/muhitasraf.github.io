@@ -8,7 +8,7 @@
       "pos_btn":"ok",
       "neg_btn":"cancel"
     },
-    "is_force_closed":true,
+    "is_force_closed":false,
     "redirect_url":"",
     "action":"alert_dialog"
   }
