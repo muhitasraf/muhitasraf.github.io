@@ -1,0 +1,15 @@
+{
+  "comapny_1": {
+    "is_locked":true,
+    "frequently_check":true,
+    "message":{
+      "titile":"Warning!",
+      "body":"Not targeting the latest versions of Android; compatibility modes apply. Consult the android. os. Build. VERSION_CODES javadoc for details. ",
+      "pos_btn":"ok",
+      "neg_btn":"cancel"
+    },
+    "is_force_closed":true,
+    "redirect_url":"",
+    "action":"alert_dialog"
+  }
+}
