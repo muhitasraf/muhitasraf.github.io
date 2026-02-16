@@ -1,6 +1,6 @@
 {
   "comapny_1": {
-    "is_locked":false,
+    "is_locked":true,
     "payment_notice":false,
     "frequently_check":true,
     "message":{
