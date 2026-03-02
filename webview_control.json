@@ -26,7 +26,7 @@
     "action":"alert_dialog"
   },
   "com.dataenvelope.edueasyadminportal": {
-    "is_locked":true,
+    "is_locked":false,
     "frequently_check":false,
     "message":{
       "titile":"Warning!",
