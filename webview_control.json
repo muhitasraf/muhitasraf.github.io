@@ -27,7 +27,7 @@
   },
   "com.dataenvelope.edueasyadminportal": {
     "is_locked":false,
-    "frequently_check":false,
+    "frequently_check":true,
     "message":{
       "titile":"Warning!",
       "body":"Please contact with the developer.",
@@ -40,7 +40,7 @@
   },
   "com.dataenvelope.edueasystudentportal": {
     "is_locked":false,
-    "frequently_check":false,
+    "frequently_check":true,
     "message":{
       "titile":"Warning!",
       "body":"Please contact with the developer.",
