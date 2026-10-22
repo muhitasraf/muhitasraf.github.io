@@ -95,10 +95,9 @@ function initTypewriter() {
   const roles = [
     'Software Engineer',
     'Full-Stack Developer',
+    'Cloud & Systems Architect',
     'Open Source Contributor',
-    'Android App Developer',
-    'Problem Solver',
-    'IoT & Systems Enthusiast'
+    'DevOps & Automation'
   ];
 
   let roleIdx = 0;
@@ -254,16 +253,17 @@ function renderProjectsFromData() {
     const techTags = (proj.tech || []).slice(0, 6).map(t => `<span class="tech-tag">${t}</span>`).join('');
 
     let extLinkHtml = '';
-    if (proj.githubUrl) {
-      extLinkHtml = `
-        <a href="${proj.githubUrl}" target="_blank" rel="noopener noreferrer" class="project-ext-link" aria-label="GitHub Repository">
-          <i class="fab fa-github"></i> ${proj.githubLabel || 'Repository'} <i class="fas fa-arrow-up-right-from-square"></i>
+    if (proj.demoUrl) {
+      extLinkHtml += `
+        <a href="${proj.demoUrl}" ${proj.demoUrl.startsWith('#') ? '' : 'target="_blank" rel="noopener noreferrer"'} class="project-ext-link" aria-label="${proj.demoLabel || 'Live Platform'}">
+          <i class="fas fa-arrow-up-right-from-square"></i> ${proj.demoLabel || 'Visit Platform'}
         </a>
       `;
-    } else if (proj.demoUrl) {
-      extLinkHtml = `
-        <a href="${proj.demoUrl}" ${proj.demoUrl.startsWith('#') ? '' : 'target="_blank" rel="noopener noreferrer"'} class="project-ext-link" aria-label="Resource Demo">
-          <i class="fas fa-arrow-up-right-from-square"></i> ${proj.demoLabel || 'View Resource'}
+    }
+    if (proj.githubUrl) {
+      extLinkHtml += `
+        <a href="${proj.githubUrl}" target="_blank" rel="noopener noreferrer" class="project-ext-link" aria-label="GitHub Repository">
+          <i class="fab fa-github"></i> ${proj.githubLabel || 'Repository'} <i class="fas fa-arrow-up-right-from-square"></i>
         </a>
       `;
     }
@@ -503,7 +503,7 @@ function initProjectFiltersAndModal() {
       // Populate Links
       const gitText = document.getElementById('modalGitText');
       if (gitLink) {
-        gitLink.href = data.githubUrl || 'https://github.com/muhitAsraf';
+        gitLink.href = data.githubUrl || 'https://github.com/muhitasraf';
         if (gitText) {
           gitText.textContent = data.githubLabel || 'View GitHub Repository';
         }
@@ -567,7 +567,7 @@ function initContactInteractions() {
 
   if (copyEmailBtn) {
     copyEmailBtn.addEventListener('click', () => {
-      navigator.clipboard.writeText('muhitasraf.swe@gmail.com').then(() => {
+      navigator.clipboard.writeText('muhitasraf@gmail.com').then(() => {
         showToast('Email copied to clipboard!');
       });
     });
@@ -575,7 +575,7 @@ function initContactInteractions() {
 
   if (copyPhoneBtn) {
     copyPhoneBtn.addEventListener('click', () => {
-      navigator.clipboard.writeText('+8801568017734').then(() => {
+      navigator.clipboard.writeText('+8801981357914').then(() => {
         showToast('Phone number copied to clipboard!');
       });
     });
@@ -595,7 +595,7 @@ function initContactInteractions() {
       }
 
       // Open user's default email client pre-populated
-      const mailtoUrl = `mailto:muhitasraf.swe@gmail.com?subject=${encodeURIComponent(subject || 'Portfolio Inquiry from ' + name)}&body=${encodeURIComponent(message + '\n\nFrom: ' + name + ' (' + email + ')')}`;
+      const mailtoUrl = `mailto:muhitasraf@gmail.com?subject=${encodeURIComponent(subject || 'Portfolio Inquiry from ' + name)}&body=${encodeURIComponent(message + '\n\nFrom: ' + name + ' (' + email + ')')}`;
       window.location.href = mailtoUrl;
 
       showToast('Opening your email client to send message...');

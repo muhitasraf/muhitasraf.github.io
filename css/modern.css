@@ -632,18 +632,37 @@ button, input, textarea {
 .terminal-body {
   padding: 1.5rem;
   font-family: var(--font-mono);
-  font-size: 0.88rem;
+  font-size: clamp(0.78rem, 0.9vw, 0.86rem);
   line-height: 1.7;
   color: #e2e8f0;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
   max-width: 100%;
 }
 
 .terminal-body pre {
   margin: 0;
-  white-space: pre-wrap;
-  word-break: break-word;
+  white-space: pre;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(56, 189, 248, 0.3) transparent;
+}
+
+.terminal-body pre::-webkit-scrollbar {
+  height: 5px;
+}
+
+.terminal-body pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.terminal-body pre::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.25);
+  border-radius: 9999px;
+  transition: background var(--transition-fast);
+}
+
+.terminal-body pre::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.6);
 }
 
 .terminal-body code {
@@ -1335,7 +1354,274 @@ button, input, textarea {
 }
 
 /* ==========================================================================
-   Experience & Education Timeline
+   Executive Hero Metrics Grid
+   ========================================================================== */
+.hero-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1.25rem;
+  width: 100%;
+}
+
+.hero-metric-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transition: all var(--transition-fast);
+  box-shadow: var(--card-shadow);
+  backdrop-filter: blur(8px);
+}
+
+.hero-metric-card:hover {
+  border-color: var(--border-focus);
+  transform: translateY(-2px);
+  box-shadow: var(--glow-shadow);
+}
+
+.hero-metric-num {
+  font-size: 1.75rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  background: var(--accent-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+.hero-metric-label {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+/* ==========================================================================
+   Work Experience Section & Cards
+   ========================================================================== */
+.experience-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+  padding-left: 2.5rem;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.experience-list::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 11px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-cyan), rgba(56, 189, 248, 0.1));
+}
+
+.experience-item {
+  position: relative;
+  width: 100%;
+}
+
+.experience-marker {
+  position: absolute;
+  left: -2.5rem;
+  top: 1.75rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 3px solid var(--accent-cyan);
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.4);
+  z-index: 2;
+  transition: all var(--transition-fast);
+}
+
+.experience-marker.active-marker {
+  border-color: var(--accent-emerald);
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.7);
+  animation: markerPulse 2.2s infinite ease-in-out;
+}
+
+@keyframes markerPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 8px rgba(16, 185, 129, 0.5); }
+  50% { transform: scale(1.18); box-shadow: 0 0 16px rgba(16, 185, 129, 0.85); }
+}
+
+.experience-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--card-shadow);
+  transition: all var(--transition-normal);
+  backdrop-filter: blur(12px);
+  position: relative;
+}
+
+.experience-card:hover {
+  border-color: var(--border-focus);
+  transform: translateY(-3px);
+  box-shadow: var(--glow-shadow);
+}
+
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 1.25rem;
+}
+
+.exp-company-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.exp-company-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.exp-company-title i {
+  color: var(--accent-cyan);
+  font-size: 1.2rem;
+}
+
+.exp-company-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.exp-company-link:hover {
+  color: var(--accent-cyan);
+}
+
+.exp-badges-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.exp-badge-pill {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.badge-location {
+  background: rgba(148, 163, 184, 0.12);
+  color: var(--text-secondary);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.badge-remote {
+  background: rgba(56, 189, 248, 0.12);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+}
+
+.badge-onsite {
+  background: rgba(168, 85, 247, 0.12);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.25);
+}
+
+.exp-period-pill {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.4rem 0.95rem;
+  border-radius: 9999px;
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  white-space: nowrap;
+}
+
+.exp-period-pill.current-period {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--accent-emerald);
+  border-color: rgba(16, 185, 129, 0.35);
+}
+
+.exp-role-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.exp-role-title span.role-gradient {
+  background: var(--accent-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.exp-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.exp-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.exp-bullets li i {
+  color: var(--accent-cyan);
+  margin-top: 0.35rem;
+  flex-shrink: 0;
+  font-size: 0.9rem;
+}
+
+.exp-bullets li strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.exp-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed var(--border-subtle);
+}
+
+/* ==========================================================================
+   Experience & Education Timeline (Academic / Honors)
    ========================================================================== */
 .timeline-grid {
   display: grid;
@@ -1969,6 +2255,10 @@ button, input, textarea {
     margin-top: 0.5rem;
     width: 100%;
   }
+
+  .hero-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* Small Tablets & Mobile Devices */
@@ -2258,6 +2548,32 @@ button, input, textarea {
 @media (max-width: 480px) {
   .hero-title {
     font-size: 1.9rem;
+  }
+
+  .hero-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-list {
+    padding-left: 1.5rem;
+    gap: 1.75rem;
+  }
+
+  .experience-marker {
+    left: -1.5rem;
+    width: 14px;
+    height: 14px;
+    top: 1.35rem;
+  }
+
+  .experience-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .exp-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
   }
 
   .badge-pulse {
